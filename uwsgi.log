@@ -1,0 +1,1094 @@
+*** Starting uWSGI 2.0.26 (64bit) on [Sat Aug 10 14:14:04 2024] ***
+compiled with version: 12.2.0 on 10 August 2024 14:13:51
+os: Linux-6.8.0-40-generic #40-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul  5 10:34:03 UTC 2024
+nodename: 12bef6ddf195
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 8
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address :8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.9.19 (main, Aug  2 2024, 14:42:02)  [GCC 12.2.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5cbcfdb6db80
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x5cbcfdb6db80 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 7, cores: 1)
+spawned uWSGI worker 2 (pid: 8, cores: 1)
+spawned uWSGI worker 3 (pid: 9, cores: 1)
+spawned uWSGI worker 4 (pid: 10, cores: 1)
+spawned uWSGI worker 5 (pid: 11, cores: 1)
+Internal Server Error: /polls/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/./polls/views.py", line 11, in index
+    return render(request, "polls/index.html", context)
+  File "/usr/local/lib/python3.9/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.9/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/defaulttags.py", line 320, in render
+    if match:
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 330, in cursor
+    return self._cursor()
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 306, in _cursor
+    self.ensure_connection()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[pid: 11|app: 0|req: 1/1] 172.18.0.1 () {56 vars in 1105 bytes} [Sat Aug 10 14:14:28 2024] GET /polls/ => generated 191557 bytes in 90 msecs (HTTP/1.1 500) 7 headers in 243 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 11|app: 0|req: 2/2] 172.18.0.1 () {54 vars in 1031 bytes} [Sat Aug 10 14:14:29 2024] GET /favicon.ico => generated 2216 bytes in 7 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.26 (64bit) on [Sat Aug 10 14:26:38 2024] ***
+compiled with version: 12.2.0 on 10 August 2024 14:13:51
+os: Linux-6.8.0-40-generic #40-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul  5 10:34:03 UTC 2024
+nodename: 36ecadf97a65
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 8
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address :8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.9.19 (main, Aug  2 2024, 14:42:02)  [GCC 12.2.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5d634fb9ab80
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x5d634fb9ab80 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 7, cores: 1)
+spawned uWSGI worker 2 (pid: 8, cores: 1)
+spawned uWSGI worker 3 (pid: 9, cores: 1)
+spawned uWSGI worker 4 (pid: 10, cores: 1)
+spawned uWSGI worker 5 (pid: 11, cores: 1)
+Internal Server Error: /polls/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/./polls/views.py", line 11, in index
+    return render(request, "polls/index.html", context)
+  File "/usr/local/lib/python3.9/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.9/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/defaulttags.py", line 320, in render
+    if match:
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 330, in cursor
+    return self._cursor()
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 306, in _cursor
+    self.ensure_connection()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[pid: 11|app: 0|req: 1/1] 172.18.0.1 () {58 vars in 1136 bytes} [Sat Aug 10 14:26:46 2024] GET /polls/ => generated 191694 bytes in 89 msecs (HTTP/1.1 500) 7 headers in 243 bytes (1 switches on core 0)
+Internal Server Error: /polls/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/./polls/views.py", line 11, in index
+    return render(request, "polls/index.html", context)
+  File "/usr/local/lib/python3.9/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.9/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/defaulttags.py", line 320, in render
+    if match:
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 330, in cursor
+    return self._cursor()
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 306, in _cursor
+    self.ensure_connection()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[pid: 10|app: 0|req: 1/2] 172.18.0.1 () {58 vars in 1136 bytes} [Sat Aug 10 14:26:47 2024] GET /polls/ => generated 191694 bytes in 84 msecs (HTTP/1.1 500) 7 headers in 243 bytes (1 switches on core 0)
+Internal Server Error: /polls/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/./polls/views.py", line 11, in index
+    return render(request, "polls/index.html", context)
+  File "/usr/local/lib/python3.9/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.9/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/defaulttags.py", line 320, in render
+    if match:
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 330, in cursor
+    return self._cursor()
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 306, in _cursor
+    self.ensure_connection()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[pid: 11|app: 0|req: 2/3] 172.18.0.1 () {58 vars in 1136 bytes} [Sat Aug 10 14:42:55 2024] GET /polls/ => generated 191694 bytes in 54 msecs (HTTP/1.1 500) 7 headers in 243 bytes (1 switches on core 0)
+Internal Server Error: /polls/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/./polls/views.py", line 11, in index
+    return render(request, "polls/index.html", context)
+  File "/usr/local/lib/python3.9/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.9/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/defaulttags.py", line 320, in render
+    if match:
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 330, in cursor
+    return self._cursor()
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 306, in _cursor
+    self.ensure_connection()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[pid: 8|app: 0|req: 1/4] 172.18.0.1 () {58 vars in 1136 bytes} [Sat Aug 10 14:42:57 2024] GET /polls/ => generated 191694 bytes in 82 msecs (HTTP/1.1 500) 7 headers in 243 bytes (1 switches on core 0)
+Internal Server Error: /polls/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/./polls/views.py", line 11, in index
+    return render(request, "polls/index.html", context)
+  File "/usr/local/lib/python3.9/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.9/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/defaulttags.py", line 320, in render
+    if match:
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 330, in cursor
+    return self._cursor()
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 306, in _cursor
+    self.ensure_connection()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[pid: 11|app: 0|req: 3/5] 172.18.0.1 () {58 vars in 1136 bytes} [Sat Aug 10 14:43:01 2024] GET /polls/ => generated 191694 bytes in 53 msecs (HTTP/1.1 500) 7 headers in 243 bytes (1 switches on core 0)
+Internal Server Error: /polls/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/./polls/views.py", line 11, in index
+    return render(request, "polls/index.html", context)
+  File "/usr/local/lib/python3.9/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.9/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/defaulttags.py", line 320, in render
+    if match:
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 330, in cursor
+    return self._cursor()
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 306, in _cursor
+    self.ensure_connection()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[pid: 11|app: 0|req: 4/6] 172.18.0.1 () {58 vars in 1136 bytes} [Sat Aug 10 14:43:02 2024] GET /polls/ => generated 191694 bytes in 51 msecs (HTTP/1.1 500) 7 headers in 243 bytes (1 switches on core 0)
+Internal Server Error: /polls/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/./polls/views.py", line 11, in index
+    return render(request, "polls/index.html", context)
+  File "/usr/local/lib/python3.9/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.9/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/defaulttags.py", line 320, in render
+    if match:
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 412, in __bool__
+    self._fetch_all()
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 330, in cursor
+    return self._cursor()
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 306, in _cursor
+    self.ensure_connection()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/db/backends/postgresql/base.py", line 275, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/usr/local/lib/python3.9/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[pid: 11|app: 0|req: 5/7] 172.18.0.1 () {58 vars in 1136 bytes} [Sat Aug 10 14:43:02 2024] GET /polls/ => generated 191694 bytes in 52 msecs (HTTP/1.1 500) 7 headers in 243 bytes (1 switches on core 0)
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.26 (64bit) on [Sat Aug 10 14:44:54 2024] ***
+compiled with version: 12.2.0 on 10 August 2024 14:13:51
+os: Linux-6.8.0-40-generic #40-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul  5 10:34:03 UTC 2024
+nodename: 732cbb6f12c9
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 8
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address :8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.9.19 (main, Aug  2 2024, 14:42:02)  [GCC 12.2.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5a458b5cdb80
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x5a458b5cdb80 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 7, cores: 1)
+spawned uWSGI worker 2 (pid: 8, cores: 1)
+spawned uWSGI worker 3 (pid: 9, cores: 1)
+spawned uWSGI worker 4 (pid: 10, cores: 1)
+spawned uWSGI worker 5 (pid: 11, cores: 1)
+[pid: 11|app: 0|req: 1/1] 172.18.0.1 () {58 vars in 1136 bytes} [Sat Aug 10 14:45:12 2024] GET /polls/ => generated 251 bytes in 30 msecs (HTTP/1.1 200) 6 headers in 207 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 2/2] 172.18.0.1 () {58 vars in 1136 bytes} [Sat Aug 10 14:45:15 2024] GET /polls/ => generated 251 bytes in 9 msecs (HTTP/1.1 200) 6 headers in 207 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 3/3] 172.18.0.1 () {58 vars in 1136 bytes} [Sat Aug 10 16:01:32 2024] GET /polls/ => generated 251 bytes in 6 msecs (HTTP/1.1 200) 6 headers in 207 bytes (1 switches on core 0)
+Not Found: /
+[pid: 9|app: 0|req: 1/4] 172.18.0.1 () {52 vars in 914 bytes} [Sat Aug 10 16:05:18 2024] GET / => generated 2165 bytes in 21 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 7|app: 0|req: 1/5] 172.18.0.1 () {52 vars in 926 bytes} [Sat Aug 10 16:05:21 2024] GET /admin/ => generated 0 bytes in 23 msecs (HTTP/1.1 302) 10 headers in 372 bytes (1 switches on core 0)
+[pid: 9|app: 0|req: 2/6] 172.18.0.1 () {52 vars in 963 bytes} [Sat Aug 10 16:05:21 2024] GET /admin/login/?next=/admin/ => generated 4181 bytes in 42 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 9|app: 0|req: 3/7] 172.18.0.1 () {56 vars in 1016 bytes} [Sat Aug 10 16:05:22 2024] GET /admin/login/?next=/admin/ => generated 4181 bytes in 4 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 10|app: 0|req: 1/8] 172.18.0.1 () {54 vars in 952 bytes} [Sat Aug 10 16:05:22 2024] GET /favicon.ico => generated 2216 bytes in 24 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.26 (64bit) on [Mon Aug 12 11:15:40 2024] ***
+compiled with version: 12.2.0 on 10 August 2024 14:13:51
+os: Linux-6.8.0-40-generic #40-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul  5 10:34:03 UTC 2024
+nodename: 0851507f4533
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 8
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address :8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.9.19 (main, Aug  2 2024, 14:42:02)  [GCC 12.2.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x56b72d3c6b80
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+5432
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x56b72d3c6b80 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 7, cores: 1)
+spawned uWSGI worker 2 (pid: 8, cores: 1)
+spawned uWSGI worker 3 (pid: 9, cores: 1)
+spawned uWSGI worker 4 (pid: 10, cores: 1)
+spawned uWSGI worker 5 (pid: 11, cores: 1)
+[pid: 11|app: 0|req: 1/1] 172.18.0.1 () {56 vars in 1105 bytes} [Mon Aug 12 11:16:02 2024] GET /polls/ => generated 251 bytes in 71 msecs (HTTP/1.1 200) 6 headers in 207 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 10|app: 0|req: 1/2] 172.18.0.1 () {54 vars in 1031 bytes} [Mon Aug 12 11:16:02 2024] GET /favicon.ico => generated 2216 bytes in 25 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 2/3] 172.18.0.1 () {60 vars in 1158 bytes} [Mon Aug 12 11:16:03 2024] GET /polls/ => generated 251 bytes in 11 msecs (HTTP/1.1 200) 6 headers in 207 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 11|app: 0|req: 3/4] 172.18.0.1 () {58 vars in 1084 bytes} [Mon Aug 12 11:16:03 2024] GET /favicon.ico => generated 2216 bytes in 10 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 4/5] 172.18.0.1 () {56 vars in 1103 bytes} [Mon Aug 12 11:16:11 2024] GET /admin => generated 0 bytes in 8 msecs (HTTP/1.1 301) 5 headers in 197 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 2/6] 172.18.0.1 () {56 vars in 1105 bytes} [Mon Aug 12 11:16:11 2024] GET /admin/ => generated 0 bytes in 19 msecs (HTTP/1.1 302) 10 headers in 372 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 5/7] 172.18.0.1 () {56 vars in 1142 bytes} [Mon Aug 12 11:16:11 2024] GET /admin/login/?next=/admin/ => generated 4181 bytes in 43 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 3/8] 172.18.0.1 () {66 vars in 1396 bytes} [Mon Aug 12 11:16:13 2024] POST /admin/login/?next=/admin/ => generated 4342 bytes in 415 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.26 (64bit) on [Mon Aug 12 11:22:26 2024] ***
+compiled with version: 12.2.0 on 10 August 2024 14:13:51
+os: Linux-6.8.0-40-generic #40-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul  5 10:34:03 UTC 2024
+nodename: 36a9ca77cc44
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 8
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address :8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.9.19 (main, Aug  2 2024, 14:42:02)  [GCC 12.2.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x61548eda0b80
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+5432
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x61548eda0b80 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 7, cores: 1)
+spawned uWSGI worker 2 (pid: 8, cores: 1)
+spawned uWSGI worker 3 (pid: 9, cores: 1)
+spawned uWSGI worker 4 (pid: 10, cores: 1)
+spawned uWSGI worker 5 (pid: 11, cores: 1)
+[pid: 11|app: 0|req: 1/1] 172.18.0.1 () {56 vars in 1142 bytes} [Mon Aug 12 11:22:45 2024] GET /admin/login/?next=/admin/ => generated 4181 bytes in 50 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 2/2] 172.18.0.1 () {66 vars in 1396 bytes} [Mon Aug 12 11:23:16 2024] POST /admin/login/?next=/admin/ => generated 0 bytes in 384 msecs (HTTP/1.1 302) 12 headers in 634 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 1/3] 172.18.0.1 () {60 vars in 1250 bytes} [Mon Aug 12 11:23:17 2024] GET /admin/ => generated 6623 bytes in 71 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 7|app: 0|req: 1/4] 172.18.0.1 () {58 vars in 1238 bytes} [Mon Aug 12 11:29:46 2024] GET /admin/polls/question/add/ => generated 9442 bytes in 81 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 1/5] 172.18.0.1 () {54 vars in 1038 bytes} [Mon Aug 12 11:29:46 2024] GET /admin/jsi18n/ => generated 3343 bytes in 38 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 2/6] 172.18.0.1 () {66 vars in 1441 bytes} [Mon Aug 12 11:30:08 2024] POST /admin/polls/question/add/ => generated 0 bytes in 27 msecs (HTTP/1.1 302) 11 headers in 707 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 3/7] 172.18.0.1 () {60 vars in 1578 bytes} [Mon Aug 12 11:30:08 2024] GET /admin/polls/question/add/ => generated 9718 bytes in 34 msecs (HTTP/1.1 200) 11 headers in 568 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 2/8] 172.18.0.1 () {54 vars in 1038 bytes} [Mon Aug 12 11:30:08 2024] GET /admin/jsi18n/ => generated 3343 bytes in 10 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 3/9] 172.18.0.1 () {66 vars in 1441 bytes} [Mon Aug 12 11:30:38 2024] POST /admin/polls/question/add/ => generated 0 bytes in 17 msecs (HTTP/1.1 302) 11 headers in 692 bytes (1 switches on core 0)
+[pid: 7|app: 0|req: 2/10] 172.18.0.1 () {60 vars in 1568 bytes} [Mon Aug 12 11:30:38 2024] GET /admin/polls/question/2/change/ => generated 10026 bytes in 22 msecs (HTTP/1.1 200) 11 headers in 569 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 4/11] 172.18.0.1 () {54 vars in 1043 bytes} [Mon Aug 12 11:30:38 2024] GET /admin/jsi18n/ => generated 3343 bytes in 13 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 3/12] 172.18.0.1 () {66 vars in 1456 bytes} [Mon Aug 12 11:30:41 2024] POST /admin/polls/question/2/change/ => generated 0 bytes in 34 msecs (HTTP/1.1 302) 11 headers in 687 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 4/13] 172.18.0.1 () {60 vars in 1563 bytes} [Mon Aug 12 11:30:41 2024] GET /admin/polls/question/add/ => generated 9701 bytes in 31 msecs (HTTP/1.1 200) 11 headers in 568 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 4/14] 172.18.0.1 () {54 vars in 1038 bytes} [Mon Aug 12 11:30:41 2024] GET /admin/jsi18n/ => generated 3343 bytes in 9 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 9|app: 0|req: 1/15] 172.18.0.1 () {66 vars in 1441 bytes} [Mon Aug 12 11:31:06 2024] POST /admin/polls/question/add/ => generated 0 bytes in 51 msecs (HTTP/1.1 302) 11 headers in 658 bytes (1 switches on core 0)
+[pid: 7|app: 0|req: 3/16] 172.18.0.1 () {60 vars in 1525 bytes} [Mon Aug 12 11:31:06 2024] GET /admin/polls/question/ => generated 9608 bytes in 38 msecs (HTTP/1.1 200) 11 headers in 568 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 5/17] 172.18.0.1 () {54 vars in 1034 bytes} [Mon Aug 12 11:31:06 2024] GET /admin/jsi18n/ => generated 3343 bytes in 12 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 5/18] 172.18.0.1 () {58 vars in 1241 bytes} [Mon Aug 12 11:31:11 2024] GET /admin/polls/choice/ => generated 7730 bytes in 26 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 6/19] 172.18.0.1 () {54 vars in 1032 bytes} [Mon Aug 12 11:31:11 2024] GET /admin/jsi18n/ => generated 3343 bytes in 10 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 5/20] 172.18.0.1 () {58 vars in 1247 bytes} [Mon Aug 12 11:31:12 2024] GET /admin/polls/choice/add/ => generated 10933 bytes in 50 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 7/21] 172.18.0.1 () {54 vars in 1036 bytes} [Mon Aug 12 11:31:12 2024] GET /admin/jsi18n/ => generated 3343 bytes in 11 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 7|app: 0|req: 4/22] 172.18.0.1 () {66 vars in 1435 bytes} [Mon Aug 12 11:31:18 2024] POST /admin/polls/choice/add/ => generated 0 bytes in 21 msecs (HTTP/1.1 302) 11 headers in 664 bytes (1 switches on core 0)
+[pid: 7|app: 0|req: 5/23] 172.18.0.1 () {60 vars in 1531 bytes} [Mon Aug 12 11:31:18 2024] GET /admin/polls/choice/add/ => generated 11161 bytes in 25 msecs (HTTP/1.1 200) 11 headers in 569 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 8/24] 172.18.0.1 () {54 vars in 1036 bytes} [Mon Aug 12 11:31:18 2024] GET /admin/jsi18n/ => generated 3343 bytes in 10 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 9/25] 172.18.0.1 () {66 vars in 1435 bytes} [Mon Aug 12 11:31:25 2024] POST /admin/polls/choice/add/ => generated 0 bytes in 20 msecs (HTTP/1.1 302) 11 headers in 666 bytes (1 switches on core 0)
+[pid: 9|app: 0|req: 2/26] 172.18.0.1 () {60 vars in 1533 bytes} [Mon Aug 12 11:31:25 2024] GET /admin/polls/choice/add/ => generated 11163 bytes in 54 msecs (HTTP/1.1 200) 11 headers in 569 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 6/27] 172.18.0.1 () {54 vars in 1036 bytes} [Mon Aug 12 11:31:25 2024] GET /admin/jsi18n/ => generated 3343 bytes in 9 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 6/28] 172.18.0.1 () {66 vars in 1435 bytes} [Mon Aug 12 11:31:30 2024] POST /admin/polls/choice/add/ => generated 0 bytes in 18 msecs (HTTP/1.1 302) 11 headers in 668 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 7/29] 172.18.0.1 () {60 vars in 1535 bytes} [Mon Aug 12 11:31:30 2024] GET /admin/polls/choice/add/ => generated 11163 bytes in 22 msecs (HTTP/1.1 200) 11 headers in 569 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 10/30] 172.18.0.1 () {54 vars in 1036 bytes} [Mon Aug 12 11:31:30 2024] GET /admin/jsi18n/ => generated 3343 bytes in 13 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 7/31] 172.18.0.1 () {66 vars in 1435 bytes} [Mon Aug 12 11:31:43 2024] POST /admin/polls/choice/add/ => generated 0 bytes in 18 msecs (HTTP/1.1 302) 11 headers in 666 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 11/32] 172.18.0.1 () {60 vars in 1533 bytes} [Mon Aug 12 11:31:43 2024] GET /admin/polls/choice/add/ => generated 11162 bytes in 23 msecs (HTTP/1.1 200) 11 headers in 569 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 12/33] 172.18.0.1 () {54 vars in 1036 bytes} [Mon Aug 12 11:31:43 2024] GET /admin/jsi18n/ => generated 3343 bytes in 10 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 9|app: 0|req: 3/34] 172.18.0.1 () {66 vars in 1435 bytes} [Mon Aug 12 11:31:54 2024] POST /admin/polls/choice/add/ => generated 0 bytes in 19 msecs (HTTP/1.1 302) 11 headers in 670 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 8/35] 172.18.0.1 () {60 vars in 1537 bytes} [Mon Aug 12 11:31:54 2024] GET /admin/polls/choice/add/ => generated 11168 bytes in 19 msecs (HTTP/1.1 200) 11 headers in 569 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 13/36] 172.18.0.1 () {54 vars in 1036 bytes} [Mon Aug 12 11:31:54 2024] GET /admin/jsi18n/ => generated 3343 bytes in 12 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 8/37] 172.18.0.1 () {66 vars in 1435 bytes} [Mon Aug 12 11:32:05 2024] POST /admin/polls/choice/add/ => generated 0 bytes in 17 msecs (HTTP/1.1 302) 11 headers in 642 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 9/38] 172.18.0.1 () {60 vars in 1505 bytes} [Mon Aug 12 11:32:05 2024] GET /admin/polls/choice/ => generated 10105 bytes in 32 msecs (HTTP/1.1 200) 11 headers in 569 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 10/39] 172.18.0.1 () {54 vars in 1032 bytes} [Mon Aug 12 11:32:05 2024] GET /admin/jsi18n/ => generated 3343 bytes in 13 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 9/40] 172.18.0.1 () {66 vars in 1409 bytes} [Mon Aug 12 11:32:12 2024] POST /admin/logout/ => generated 3576 bytes in 17 msecs (HTTP/1.1 200) 10 headers in 433 bytes (1 switches on core 0)
+Not Found: /
+[pid: 11|app: 0|req: 14/41] 172.18.0.1 () {56 vars in 1093 bytes} [Mon Aug 12 11:32:16 2024] GET / => generated 2165 bytes in 11 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 15/42] 172.18.0.1 () {56 vars in 1105 bytes} [Mon Aug 12 11:32:19 2024] GET /polls/ => generated 587 bytes in 10 msecs (HTTP/1.1 200) 6 headers in 207 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 16/43] 172.18.0.1 () {58 vars in 1160 bytes} [Mon Aug 12 11:32:21 2024] GET /polls/2/ => generated 918 bytes in 11 msecs (HTTP/1.1 200) 8 headers in 357 bytes (1 switches on core 0)
+[pid: 9|app: 0|req: 4/44] 172.18.0.1 () {66 vars in 1354 bytes} [Mon Aug 12 11:32:22 2024] POST /polls/2/vote/ => generated 0 bytes in 13 msecs (HTTP/1.1 302) 7 headers in 237 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 11/45] 172.18.0.1 () {60 vars in 1209 bytes} [Mon Aug 12 11:32:22 2024] GET /polls/2/results/ => generated 431 bytes in 9 msecs (HTTP/1.1 200) 6 headers in 207 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 17/46] 172.18.0.1 () {58 vars in 1170 bytes} [Mon Aug 12 11:32:24 2024] GET /polls/2/ => generated 918 bytes in 8 msecs (HTTP/1.1 200) 8 headers in 357 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 12/47] 172.18.0.1 () {56 vars in 1105 bytes} [Mon Aug 12 11:32:28 2024] GET /polls/ => generated 587 bytes in 9 msecs (HTTP/1.1 200) 6 headers in 207 bytes (1 switches on core 0)
+[pid: 7|app: 0|req: 6/48] 172.18.0.1 () {58 vars in 1160 bytes} [Mon Aug 12 11:32:31 2024] GET /polls/1/ => generated 955 bytes in 12 msecs (HTTP/1.1 200) 8 headers in 357 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 13/49] 172.18.0.1 () {66 vars in 1354 bytes} [Mon Aug 12 11:32:33 2024] POST /polls/1/vote/ => generated 0 bytes in 13 msecs (HTTP/1.1 302) 7 headers in 237 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 14/50] 172.18.0.1 () {60 vars in 1209 bytes} [Mon Aug 12 11:32:33 2024] GET /polls/1/results/ => generated 468 bytes in 10 msecs (HTTP/1.1 200) 6 headers in 207 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 10/51] 172.18.0.1 () {58 vars in 1170 bytes} [Mon Aug 12 11:32:33 2024] GET /polls/1/ => generated 955 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 357 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 11/52] 172.18.0.1 () {66 vars in 1354 bytes} [Mon Aug 12 11:32:36 2024] POST /polls/1/vote/ => generated 0 bytes in 13 msecs (HTTP/1.1 302) 7 headers in 237 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 12/53] 172.18.0.1 () {60 vars in 1209 bytes} [Mon Aug 12 11:32:36 2024] GET /polls/1/results/ => generated 469 bytes in 8 msecs (HTTP/1.1 200) 6 headers in 207 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 18/54] 172.18.0.1 () {58 vars in 1170 bytes} [Mon Aug 12 11:32:37 2024] GET /polls/1/ => generated 955 bytes in 7 msecs (HTTP/1.1 200) 8 headers in 357 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 13/55] 172.18.0.1 () {66 vars in 1354 bytes} [Mon Aug 12 11:32:38 2024] POST /polls/1/vote/ => generated 0 bytes in 13 msecs (HTTP/1.1 302) 7 headers in 237 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 15/56] 172.18.0.1 () {60 vars in 1209 bytes} [Mon Aug 12 11:32:38 2024] GET /polls/1/results/ => generated 468 bytes in 9 msecs (HTTP/1.1 200) 6 headers in 207 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 14/57] 172.18.0.1 () {58 vars in 1170 bytes} [Mon Aug 12 11:32:39 2024] GET /polls/1/ => generated 955 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 357 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 19/58] 172.18.0.1 () {56 vars in 1107 bytes} [Mon Aug 12 11:32:44 2024] GET /polls/3 => generated 0 bytes in 8 msecs (HTTP/1.1 301) 5 headers in 199 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 20/59] 172.18.0.1 () {56 vars in 1109 bytes} [Mon Aug 12 11:32:44 2024] GET /polls/3/ => generated 928 bytes in 8 msecs (HTTP/1.1 200) 8 headers in 357 bytes (1 switches on core 0)
+[pid: 9|app: 0|req: 5/60] 172.18.0.1 () {66 vars in 1354 bytes} [Mon Aug 12 11:32:49 2024] POST /polls/3/vote/ => generated 0 bytes in 11 msecs (HTTP/1.1 302) 7 headers in 237 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 15/61] 172.18.0.1 () {60 vars in 1209 bytes} [Mon Aug 12 11:32:49 2024] GET /polls/3/results/ => generated 441 bytes in 8 msecs (HTTP/1.1 200) 6 headers in 207 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 21/62] 172.18.0.1 () {58 vars in 1170 bytes} [Mon Aug 12 11:32:51 2024] GET /polls/3/ => generated 928 bytes in 8 msecs (HTTP/1.1 200) 8 headers in 357 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 22/63] 172.18.0.1 () {56 vars in 1105 bytes} [Mon Aug 12 11:33:09 2024] GET /admin/ => generated 0 bytes in 2 msecs (HTTP/1.1 302) 10 headers in 372 bytes (1 switches on core 0)
+[pid: 9|app: 0|req: 6/64] 172.18.0.1 () {56 vars in 1142 bytes} [Mon Aug 12 11:33:09 2024] GET /admin/login/?next=/admin/ => generated 4181 bytes in 11 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 23/65] 172.18.0.1 () {66 vars in 1396 bytes} [Mon Aug 12 11:33:10 2024] POST /admin/login/?next=/admin/ => generated 0 bytes in 400 msecs (HTTP/1.1 302) 12 headers in 634 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 24/66] 172.18.0.1 () {60 vars in 1250 bytes} [Mon Aug 12 11:33:11 2024] GET /admin/ => generated 9605 bytes in 20 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 25/67] 172.18.0.1 () {58 vars in 1230 bytes} [Mon Aug 12 11:33:16 2024] GET /admin/polls/question/ => generated 9388 bytes in 28 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 26/68] 172.18.0.1 () {54 vars in 1034 bytes} [Mon Aug 12 11:33:16 2024] GET /admin/jsi18n/ => generated 3343 bytes in 15 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 27/69] 172.18.0.1 () {58 vars in 1263 bytes} [Mon Aug 12 11:33:20 2024] GET /admin/polls/question/3/change/ => generated 9772 bytes in 20 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 16/70] 172.18.0.1 () {54 vars in 1043 bytes} [Mon Aug 12 11:33:20 2024] GET /admin/jsi18n/ => generated 3343 bytes in 8 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 9|app: 0|req: 7/71] 172.18.0.1 () {66 vars in 1456 bytes} [Mon Aug 12 11:33:27 2024] POST /admin/polls/question/3/change/ => generated 0 bytes in 18 msecs (HTTP/1.1 302) 11 headers in 660 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 17/72] 172.18.0.1 () {60 vars in 1532 bytes} [Mon Aug 12 11:33:27 2024] GET /admin/polls/question/ => generated 9612 bytes in 19 msecs (HTTP/1.1 200) 11 headers in 568 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 28/73] 172.18.0.1 () {54 vars in 1034 bytes} [Mon Aug 12 11:33:27 2024] GET /admin/jsi18n/ => generated 3343 bytes in 11 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 29/74] 172.18.0.1 () {58 vars in 1210 bytes} [Mon Aug 12 11:36:17 2024] GET /admin/polls/question/ => generated 9389 bytes in 19 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 9|app: 0|req: 8/75] 172.18.0.1 () {54 vars in 1034 bytes} [Mon Aug 12 11:36:17 2024] GET /admin/jsi18n/ => generated 3343 bytes in 15 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 9|app: 0|req: 9/76] 172.18.0.1 () {66 vars in 1411 bytes} [Mon Aug 12 11:36:19 2024] POST /admin/logout/ => generated 3576 bytes in 16 msecs (HTTP/1.1 200) 10 headers in 433 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 18/77] 172.18.0.1 () {58 vars in 1163 bytes} [Mon Aug 12 11:36:21 2024] GET /admin/ => generated 0 bytes in 2 msecs (HTTP/1.1 302) 10 headers in 372 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 19/78] 172.18.0.1 () {58 vars in 1200 bytes} [Mon Aug 12 11:36:21 2024] GET /admin/login/?next=/admin/ => generated 4181 bytes in 10 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 30/79] 172.18.0.1 () {66 vars in 1396 bytes} [Mon Aug 12 11:37:00 2024] POST /admin/login/?next=/admin/ => generated 0 bytes in 380 msecs (HTTP/1.1 302) 12 headers in 634 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 20/80] 172.18.0.1 () {60 vars in 1250 bytes} [Mon Aug 12 11:37:00 2024] GET /admin/ => generated 9589 bytes in 19 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 21/81] 172.18.0.1 () {58 vars in 1244 bytes} [Mon Aug 12 11:37:04 2024] GET /admin/polls/choice/5/change/ => generated 11168 bytes in 24 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+[pid: 9|app: 0|req: 10/82] 172.18.0.1 () {54 vars in 1041 bytes} [Mon Aug 12 11:37:05 2024] GET /admin/jsi18n/ => generated 3343 bytes in 9 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 31/83] 172.18.0.1 () {56 vars in 1149 bytes} [Mon Aug 12 11:37:22 2024] GET /polls/ => generated 588 bytes in 7 msecs (HTTP/1.1 200) 6 headers in 207 bytes (1 switches on core 0)
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.26 (64bit) on [Mon Aug 12 11:43:40 2024] ***
+compiled with version: 12.2.0 on 10 August 2024 14:13:51
+os: Linux-6.8.0-40-generic #40-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul  5 10:34:03 UTC 2024
+nodename: ac28eb556e0a
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 8
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address :8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.9.19 (main, Aug  2 2024, 14:42:02)  [GCC 12.2.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x61f3bf140b80
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+5432
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x61f3bf140b80 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 7, cores: 1)
+spawned uWSGI worker 2 (pid: 8, cores: 1)
+spawned uWSGI worker 3 (pid: 9, cores: 1)
+spawned uWSGI worker 4 (pid: 10, cores: 1)
+spawned uWSGI worker 5 (pid: 11, cores: 1)
+[pid: 11|app: 0|req: 1/1] 172.18.0.1 () {56 vars in 1144 bytes} [Mon Aug 12 11:44:03 2024] GET /polls/ => generated 588 bytes in 41 msecs (HTTP/1.1 200) 6 headers in 207 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 8|app: 0|req: 1/2] 172.18.0.1 () {54 vars in 1065 bytes} [Mon Aug 12 11:44:04 2024] GET /favicon.ico => generated 2211 bytes in 18 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 1/3] 172.18.0.1 () {60 vars in 1197 bytes} [Mon Aug 12 11:44:05 2024] GET /polls/ => generated 588 bytes in 37 msecs (HTTP/1.1 200) 6 headers in 207 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 8|app: 0|req: 2/4] 172.18.0.1 () {58 vars in 1118 bytes} [Mon Aug 12 11:44:05 2024] GET /favicon.ico => generated 2211 bytes in 4 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 2/5] 172.18.0.1 () {58 vars in 1194 bytes} [Mon Aug 12 11:44:06 2024] GET /polls/1/ => generated 955 bytes in 15 msecs (HTTP/1.1 200) 8 headers in 357 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 3/6] 172.18.0.1 () {66 vars in 1383 bytes} [Mon Aug 12 11:44:08 2024] POST /polls/1/vote/ => generated 1029 bytes in 28 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 3/7] 172.18.0.1 () {66 vars in 1388 bytes} [Mon Aug 12 11:44:09 2024] POST /polls/1/vote/ => generated 0 bytes in 12 msecs (HTTP/1.1 302) 7 headers in 237 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 4/8] 172.18.0.1 () {60 vars in 1248 bytes} [Mon Aug 12 11:44:09 2024] GET /polls/1/results/ => generated 468 bytes in 10 msecs (HTTP/1.1 200) 6 headers in 207 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 4/9] 172.18.0.1 () {58 vars in 1204 bytes} [Mon Aug 12 11:44:10 2024] GET /polls/1/ => generated 955 bytes in 9 msecs (HTTP/1.1 200) 8 headers in 357 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 5/10] 172.18.0.1 () {58 vars in 1179 bytes} [Mon Aug 12 11:44:13 2024] GET /polls/1/ => generated 955 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 357 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 6/11] 172.18.0.1 () {56 vars in 1142 bytes} [Mon Aug 12 11:49:46 2024] GET /admin => generated 0 bytes in 8 msecs (HTTP/1.1 301) 5 headers in 197 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 5/12] 172.18.0.1 () {56 vars in 1144 bytes} [Mon Aug 12 11:49:46 2024] GET /admin/ => generated 9589 bytes in 39 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 9|app: 0|req: 1/13] 172.18.0.1 () {66 vars in 1381 bytes} [Mon Aug 12 11:49:48 2024] POST /admin/logout/ => generated 3576 bytes in 60 msecs (HTTP/1.1 200) 10 headers in 433 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 6/14] 172.18.0.1 () {58 vars in 1153 bytes} [Mon Aug 12 11:49:50 2024] GET /admin/ => generated 0 bytes in 3 msecs (HTTP/1.1 302) 10 headers in 372 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 2/15] 172.18.0.1 () {58 vars in 1190 bytes} [Mon Aug 12 11:49:50 2024] GET /admin/login/?next=/admin/ => generated 4181 bytes in 28 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 3/16] 172.18.0.1 () {66 vars in 1381 bytes} [Mon Aug 12 11:49:51 2024] POST /admin/login/?next=/admin/ => generated 4340 bytes in 395 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 9|app: 0|req: 2/17] 172.18.0.1 () {66 vars in 1381 bytes} [Mon Aug 12 11:49:58 2024] POST /admin/login/?next=/admin/ => generated 4340 bytes in 378 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 7/18] 172.18.0.1 () {66 vars in 1381 bytes} [Mon Aug 12 11:50:02 2024] POST /admin/login/?next=/admin/ => generated 0 bytes in 388 msecs (HTTP/1.1 302) 12 headers in 634 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 8/19] 172.18.0.1 () {60 vars in 1240 bytes} [Mon Aug 12 11:50:02 2024] GET /admin/ => generated 9589 bytes in 20 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.26 (64bit) on [Mon Aug 12 11:53:58 2024] ***
+compiled with version: 12.2.0 on 10 August 2024 14:13:51
+os: Linux-6.8.0-40-generic #40-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul  5 10:34:03 UTC 2024
+nodename: 737a989d0b2f
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 8
+current working directory: /app
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address :8000 fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.9.19 (main, Aug  2 2024, 14:42:02)  [GCC 12.2.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x56da921b6b80
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437520 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+5432
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x56da921b6b80 pid: 1 (default app)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1)
+spawned uWSGI worker 1 (pid: 7, cores: 1)
+spawned uWSGI worker 2 (pid: 8, cores: 1)
+spawned uWSGI worker 3 (pid: 9, cores: 1)
+spawned uWSGI worker 4 (pid: 10, cores: 1)
+spawned uWSGI worker 5 (pid: 11, cores: 1)
+[pid: 11|app: 0|req: 1/1] 172.18.0.1 () {58 vars in 1180 bytes} [Mon Aug 12 11:54:02 2024] GET /admin/ => generated 9589 bytes in 83 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 9|app: 0|req: 1/2] 172.18.0.1 () {54 vars in 1075 bytes} [Mon Aug 12 11:54:03 2024] GET /favicon.ico => generated 2216 bytes in 28 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 1/3] 172.18.0.1 () {66 vars in 1396 bytes} [Mon Aug 12 11:54:05 2024] POST /admin/logout/ => generated 3576 bytes in 61 msecs (HTTP/1.1 200) 10 headers in 433 bytes (1 switches on core 0)
+[pid: 8|app: 0|req: 2/4] 172.18.0.1 () {58 vars in 1163 bytes} [Mon Aug 12 11:54:07 2024] GET /admin/ => generated 0 bytes in 1 msecs (HTTP/1.1 302) 10 headers in 372 bytes (1 switches on core 0)
+[pid: 10|app: 0|req: 1/5] 172.18.0.1 () {58 vars in 1200 bytes} [Mon Aug 12 11:54:07 2024] GET /admin/login/?next=/admin/ => generated 4181 bytes in 50 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 11|app: 0|req: 2/6] 172.18.0.1 () {56 vars in 1105 bytes} [Mon Aug 12 11:54:10 2024] GET /polls/ => generated 588 bytes in 11 msecs (HTTP/1.1 200) 6 headers in 207 bytes (1 switches on core 0)
