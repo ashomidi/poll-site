@@ -1,3 +1,4 @@
 docker_password.txt
 db.sqlite3
 logs.txt
+uwsgi.log
